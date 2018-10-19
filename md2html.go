@@ -4,11 +4,19 @@ import "github.com/russross/blackfriday"
 
 func Md2Html(md []byte) (res []byte) {
 	mathjax := `<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'>MathJax.Hub.Config({tex2jax:{inlineMath:[['$','$'],['\\(','\\)']],processEscapes:true}});</script>`
-	res = []byte(`<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style>` + string(style) + `</style>` + mathjax + `
-	<div class="markdown">` + string(blackfriday.MarkdownCommon(md)) + `</div>`)
+	res = []byte(
+		`<meta name="viewport" content="width=device-width, initial-scale=1.0"><style>` + docStyle + `</style>` + mathjax + string(blackfriday.MarkdownCommon(md)))
 	return
 }
+
+const docStyle = `
+*{margin:0;padding:0}
+html{background-color:#111;color:#ccc;font-family:'Courier New',Courier,monospace}
+pre{padding:10px;background-color:#222;color:#999;font-size:12px;line-height:18px}
+p{padding:10px;color:#f90;font-size:14px}
+h1{padding:10px;padding-bottom:0;color:#697faf;letter-spacing:1px;font-weight:500;font-size:16px}
+
+`
 
 const style = `
 html {

@@ -10,11 +10,8 @@ func Md2Html(md []byte) (res []byte) {
 }
 
 const docStyle = `
-*{margin:0;padding:0}
-html{background-color:#111;color:#ccc;font-family:'Courier New',Courier,monospace}
-pre{padding:10px;background-color:#222;color:#999;font-size:12px;line-height:18px}
-p{padding:10px;color:#f90;font-size:14px}
-h1{padding:10px;padding-bottom:0;color:#697faf;letter-spacing:1px;font-weight:500;font-size:16px}
+
+*{margin:0;padding:0}html{background-color:#111;color:#ccc;font-family:Courier New,Courier,monospace}pre{background-color:#222;color:#999;font-size:9pt;line-height:18px}h1,pre{padding:10px}h1{color:#697faf;letter-spacing:1px;font-weight:500;font-size:1pc}p{padding:10px;padding-top:0;color:#f90;font-size:9pt}
 
 `
 
